@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity { //klases pradzia
 
@@ -28,11 +27,19 @@ public class LoginActivity extends AppCompatActivity { //klases pradzia
                 String usernameStr = username.getText().toString(); // String visada is didziosios raides
                 String passwordStr = password.getText().toString();
 
-                Toast.makeText(LoginActivity.this, "prisijungimo vardas: " +
-                        usernameStr + "\n" + "slaptazodis: " + passwordStr, Toast.LENGTH_LONG).show();
+                username.setError(null); //issivalome klaidu zurnala
+                if (Validation.isUsernameValid(usernameStr)){
+                    Intent goToSearchActivity = new Intent(LoginActivity.this, SearchActivity.class); // iš kur (pirmas parametras) į kur (antras parametras)
+                    startActivity(goToSearchActivity);
+                } else if (!Validation.isUsernameValid(usernameStr)){ // jeigu nebus validus ismesime i ekrana klaida
+                        //Toast.makeText(LoginActivity.this, getResources().getString(R.string.login_ivalid_username), Toast.LENGTH_LONG).show();
+                    username.setError(getResources().getString(R.string.login_invalid_username));
+                    username.requestFocus();
+                }
 
-                Intent goToSearchActivity = new Intent(LoginActivity.this, SearchActivity.class); // iš kur (pirmas parametras) į kur (antras parametras)
-                startActivity(goToSearchActivity);
+
+                //Toast.makeText(LoginActivity.this, "prisijungimo vardas: " +
+                        //usernameStr + "\n" + "slaptazodis: " + passwordStr, Toast.LENGTH_LONG).show(); // nebus vykdomas
 
             } //pabaiga
         }); //mygtuko paleidimo funkcijos pabaiga
