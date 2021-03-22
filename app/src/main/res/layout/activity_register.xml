@@ -6,11 +6,27 @@
     android:orientation="vertical"
     android:padding="20dp">
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorDarkBlue"
+        android:text="@string/register_message"
+        android:textSize="20sp"
+        android:fontFamily="serif-monospace" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
     <EditText
         android:id="@+id/Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:hint="@string/register_username" />
 
     <Space
@@ -38,7 +54,6 @@
     <Space
         android:layout_width="wrap_content"
         android:layout_height="100dp" />
-
 
     <Button
         android:id="@+id/Register"

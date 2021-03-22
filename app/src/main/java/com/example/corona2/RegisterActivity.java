@@ -13,10 +13,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        super.onCreate(savedInstanceState); //tuscio lango sukurimas
+        setContentView(R.layout.activity_register); //suteik tusciam langui si vaizda (kodas susiejamas su vaizdu)
 
-        EditText username = findViewById(R.id.Username); //susiejamas elementas vaizde su kintamuotu
+        EditText username = findViewById(R.id.Username); //susiejamas kintamasis vaizde su kintamuotu kode
         EditText password = findViewById(R.id.Password);
         EditText email = findViewById(R.id.Email);
         Button register = findViewById(R.id.Register);
@@ -24,16 +24,16 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String usernameStr = username.getText().toString();
+                //cia rasomas kodas, kuris bus vykdomas, kai paspausime mygtuka
+                String usernameStr = username.getText().toString(); //getText - issitraukiame eilute is EditText, kreipiames i kintamaji, kad nuskaitytu vartotojo suvesta teksta
                 String passwordStr = password.getText().toString();
                 String emailStr = email.getText().toString();
 
-                username.setError(null);
-                password.setError(null);
+                username.setError(null); //nulis yra skaicius, o null reiskia nieko nera, tuscia
+                password.setError(null); //pries validacija issivalome klaidu zurnala
                 email.setError(null);
 
-                if (Validation.isUsernameValid(usernameStr) && Validation.isPasswordValid(passwordStr) && Validation.isEmailValid(emailStr)) {
+                if (Validation.isUsernameValid(usernameStr) && Validation.isEmailValid(emailStr) && Validation.isPasswordValid(passwordStr)) { //jeigu bus validus duomenys, pereisim is vieno lango i kita
                     Toast.makeText(RegisterActivity.this, "Username: " +
                             usernameStr + "\n" + "Email: " + emailStr + "\n" + "Password: " + passwordStr, Toast.LENGTH_LONG).show();
 
@@ -41,12 +41,20 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(goToLoginActivity);
 
                 } else { //nesirašo skliaustelis sąlygos nurodymui, nes bus vykdomas visais kitais atvejais
-                    username.setError(getResources().getString(R.string.register_invalid_credentials));
-                    username.requestFocus();
+                    if (!Validation.isUsernameValid(usernameStr)) { //jeigu nebus validus ismes i ekrana klaida
+                        username.setError(getResources().getString(R.string.register_invalid_username));
+                        username.requestFocus(); //sufokusuoja ties klaida
+                    }
+                    if (!Validation.isEmailValid(emailStr)) {
+                        email.setError(getResources().getString(R.string.register_invalid_email));
+                        email.requestFocus();
+                    }
+                    if (!Validation.isPasswordValid(passwordStr)) {
+                        password.setError(getResources().getString(R.string.register_invalid_password));
+                        password.requestFocus();
+                    }
                 }
-            }
-        });
-
-
+            } //onclick funkcijos pabaiga
+        });//mygtuko paleidimo funkcijos pabaiga
     }
 }

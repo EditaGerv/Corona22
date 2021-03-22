@@ -9,11 +9,13 @@
     <string name="login_remember_me">Remember me</string>
     <string name="login_invalid_credentials">Invalid username or/and password</string>
 
+    <string name="register_message">Create your account. It is free and only takes a minute.</string>
     <string name="register_username">Username</string>
     <string name="register_email">Email</string>
     <string name="register_password">Password</string>
     <string name="register_register">Register</string>
-    <string name="register_invalid_credentials">Invalid credentials</string>
-
+    <string name="register_invalid_username">Username can only contain letters, numbers and must be between 3 and 20 characters long</string>
+    <string name="register_invalid_password">Password can only contain small letters, underscores, dots, exclamation mark, @ and must be between 5 and 20 characters long</string>
+    <string name="register_invalid_email">Email can only contain letters, numbers, dots, underscores, dashes, @ and must be between 10 and 50 characters long</string>
 
 </resources>
