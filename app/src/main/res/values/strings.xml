@@ -19,6 +19,6 @@
     <string name="register_invalid_email">Email can only contain letters, numbers, dots, underscores, dashes, @ and must be between 10 and 50 characters long</string>
     <string name="search_loading_data">Please wait for COVID data</string>
     <string name="search_error_reading_data">Couldn\'t read data from API. For more information:</string>
-
+    <string name="search_no_results">No results for this query</string>
 
 </resources>
