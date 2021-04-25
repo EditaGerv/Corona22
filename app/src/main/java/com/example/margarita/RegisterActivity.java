@@ -1,4 +1,4 @@
-package com.example.corona2;
+package com.example.margarita;
 
 import androidx.appcompat.app.AppCompatActivity;
 

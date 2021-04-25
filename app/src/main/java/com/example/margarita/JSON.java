@@ -1,4 +1,4 @@
-package com.example.corona2;
+package com.example.margarita;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,44 +39,44 @@ public class JSON {
 
     //vartotojui niekad nereiks visu duomenu, reikes konkrecios valstybes duomenu, todel mes turesim issitraukti is JSON tik tai, kas mus domina, reikia, kad grazintu sarasa be duomenu, kurie nereikalingi, sis metodas mums grazins arraylist, per parametrus mes perduosime json sarasa ir ji konvertuos
     //ArrayList yra Corona klases objektu sarasas
-    public static ArrayList<Corona> getList(JSONArray jsonArray) throws JSONException {
+    public static ArrayList<Margarita> getList(JSONArray jsonArray) throws JSONException {
         //<> kokios klase objektus talpinsim, sarasai gali talpinti tik 1 tipo elementus
-        ArrayList<Corona> coronaList = new ArrayList<Corona>();
+        ArrayList<Margarita> margaritaList = new ArrayList<Margarita>();
         //Isimti data is JSON ir issaugoti Corona objektu sarase coronaList
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
-            Corona corona = new Corona(
-                    //public Corona(String country, String lastUpdate, String keyId, int confirmed, int deaths)
-                    jsonObject.getString("country"),
-                    jsonObject.getString("lastUpdate"),
-                    jsonObject.getString("keyId"),
-                    jsonObject.getInt("confirmed"),
-                    jsonObject.getInt("deaths")
+            Margarita margarita = new Margarita( //Margarita konstruktorius, susideda is 5 elemntu. 1 elementas - idDrink, todel trauksime idDrink
+            //public Margarita(String idDrink, String strDrink, String strTags, String strCategory, String strGlass)
+                    jsonObject.getString("idDrink"), //idDrink rasoma taip, kaip JSON duomenyse. Traukiant raktus is JSON, jie turi buti IDENTISKI
+                    jsonObject.getString("strDrink"),
+                    jsonObject.getString("strTags"),
+                    jsonObject.getString("strCategory"),
+                    jsonObject.getString("strGlass")
             );
-            coronaList.add(corona);
+            margaritaList.add(margarita);
         }
-        return coronaList;
+        return margaritaList;
     }
 
-    public static JSONArray getJSONArray(JSONObject jsonObject) throws JSONException {
+    public static JSONArray getJSONArray(JSONObject json) throws JSONException {
         //pasalinama is JSON'o visa nereikalinga informacija(metaduomenys), paliekant tik covid19stats masyva
-    int jsonLength = jsonObject.toString().length();
-    String covid19Stats = "{"+jsonObject.toString().substring(96, jsonLength)+"}"; //substring metodas kuris iskerpa dali simboliu is eilutes, nuo 96 iki pacio galo
+//    int jsonLength = jsonObject.toString().length();
+//    String covid19Stats = "{"+jsonObject.toString().substring(96, jsonLength)+"}"; //substring metodas kuris iskerpa dali simboliu is eilutes, nuo 96 iki pacio galo
 
         //Konvertacija String i JSON objekta
-    JSONObject jsonobject1 = new JSONObject(covid19Stats);
+//    JSONObject jsonobject1 = new JSONObject(covid19Stats);
     // JSONObject į JSONArray
-        JSONArray jsonArray = jsonobject1.getJSONArray("covid19Stats");
+        JSONArray jsonArray = json.getJSONArray("drinks");
         return jsonArray;
     }
 
-    public static ArrayList<Corona> getCoronaListByCountry(ArrayList<Corona> coronaArrayList, String country){
-        ArrayList<Corona> coronaListByCountry = new ArrayList<Corona>();
-        for (Corona corona : coronaArrayList) { // kaireje bus sukuriamas tos klases objektas per kurios sarasa iteruojama (desineje)
-            if(corona.getKeyId().contains(country)){
-                coronaListByCountry.add(corona); //contains stringo metodas kuris iesko zodzio dalies
+    public static ArrayList<Margarita> getMargaritaListByQuery(ArrayList<Margarita> margaritaArrayList, String name){
+        ArrayList<Margarita> margaritaListByQuery = new ArrayList<Margarita>();
+        for (Margarita margarita : margaritaArrayList) { // kaireje bus sukuriamas tos klases objektas per kurios sarasa iteruojama (desineje)
+            if(margarita.getName().contains(name)){
+                margaritaListByQuery.add(margarita); //contains stringo metodas kuris iesko zodzio dalies
             }
         }
-        return coronaListByCountry;
+        return margaritaListByQuery;
     }
 }

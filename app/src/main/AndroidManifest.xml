@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.corona2">
+    package="com.example.margarita">
     // kad aplikacija galetu prieiti prie interneto:
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
@@ -9,15 +9,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Corona2">
-        <activity android:name=".RegisterActivity"></activity>
+        android:theme="@style/Theme.Margarita">
+        <activity android:name="com.example.margarita.RegisterActivity"></activity>
 
         <meta-data
             android:name="android.app.default_searchable"
             android:value=".SearchActivity" />
 
         <activity
-            android:name=".SearchActivity"
+            android:name="com.example.margarita.SearchActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -28,7 +28,7 @@
                 android:resource="@xml/searchable" />
         </activity>
         
-        <activity android:name=".LoginActivity">
+        <activity android:name="com.example.margarita.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

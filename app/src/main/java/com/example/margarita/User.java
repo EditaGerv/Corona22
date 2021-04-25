@@ -1,4 +1,4 @@
-package com.example.corona2;
+package com.example.margarita;
 
 import android.content.Context;
 import android.content.SharedPreferences;
