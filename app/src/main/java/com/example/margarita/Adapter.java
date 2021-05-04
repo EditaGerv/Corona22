@@ -41,7 +41,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> { //A
         Margarita current = drinks.get(position);
         //uzpildysime kortele duomenimis is saraso
         myHolder.textName.setText(current.getName()); //myHolder yra kortele. KeyId
-        myHolder.textTags.setText("Tags: " + current.getTags());
+        myHolder.textTypes.setText("Drink Type: " + current.getTypes());
         myHolder.textCategory.setText("Category: " + current.getCategory());
         myHolder.textGlass.setText("Glass Type: " + current.getGlass());
     }
@@ -55,7 +55,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> { //A
 
     class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener { //vidine klase MyHolder. Galesime spausti ant bet kurios korteles ismestos ir gauti daugiau duomenu apie toje korteleje esancius duomenis
         TextView textName;
-        TextView textTags;
+        TextView textTypes;
         TextView textCategory;
         TextView textGlass;
 
@@ -63,7 +63,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> { //A
         public MyHolder(View itemView) {
             super(itemView);
             textName = (TextView) itemView.findViewById(R.id.textName); //viska imame is container_corona.xml
-            textTags = (TextView) itemView.findViewById(R.id.textTags);
+            textTypes = (TextView) itemView.findViewById(R.id.textTypes);
             textCategory = (TextView) itemView.findViewById(R.id.textCategory);
             textGlass = (TextView) itemView.findViewById(R.id.textGlass);
             itemView.setOnClickListener(this);

@@ -23,7 +23,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:text="Tags"
+        android:text="Drink Type"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/colorRed"/>
 
@@ -40,7 +40,7 @@
         android:textColor="@color/colorOrange"   />
 
     <TextView
-        android:id="@+id/textTags"
+        android:id="@+id/textTypes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textName"

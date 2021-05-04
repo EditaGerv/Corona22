@@ -17,7 +17,7 @@
     <string name="register_invalid_username">Username can only contain letters, numbers and must be between 3 and 20 characters long</string>
     <string name="register_invalid_password">Password can only contain small letters, underscores, dots, exclamation mark, @ and must be between 5 and 20 characters long</string>
     <string name="register_invalid_email">Email can only contain letters, numbers, dots, underscores, dashes, @ and must be between 10 and 50 characters long</string>
-    <string name="search_loading_data">>Please wait for data to be displayed</string>
+    <string name="search_loading_data">Please wait for data to be displayed</string>
     <string name="search_error_reading_data">Could not read data from API</string>
     <string name="search_no_results">No search results found for query: </string>
 

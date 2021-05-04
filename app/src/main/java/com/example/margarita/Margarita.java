@@ -3,14 +3,14 @@ package com.example.margarita;
 public class Margarita {
     private String id;
     private String name;
-    private String tags;
+    private String types;
     private String category;
     private String glass;
 
-    public Margarita(String id, String name, String tags, String category, String glass) {
+    public Margarita(String id, String name, String types, String category, String glass) {
         this.id = id;
         this.name = name;
-        this.tags = tags;
+        this.types = types;
         this.category = category;
         this.glass = glass;
     }
@@ -31,12 +31,12 @@ public class Margarita {
         this.name = name;
     }
 
-    public String getTags() {
-        return tags;
+    public String getTypes() {
+        return types;
     }
 
-    public void setTags(String tags) {
-        this.tags = tags;
+    public void setTypes(String types) {
+        this.types = types;
     }
 
     public String getCategory() {
@@ -59,7 +59,7 @@ public class Margarita {
         return "Margarita{" +
                 "Drink ID='" + id + '\'' +
                 ", Drink Name='" + name + '\'' +
-                ", Tags='" + tags + '\'' +
+                ", Drink Type='" + types + '\'' +
                 ", Category=" + category +
                 ", Glass Type=" + glass +
                 '}';
